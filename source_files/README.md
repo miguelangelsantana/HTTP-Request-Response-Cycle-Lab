@@ -52,36 +52,24 @@ The first endpoint we'll look at on Open Notify is the ` iss-now.json` endpoint 
 
 
 ```python
-import requests
-# Make a get request to get the latest position of the international space station from the opennotify api.
-response = requests.get("http://api.open-notify.org/iss-now.json")
-
-# Print the status code of the response.
-print(response.status_code)
+# Your Code Here
 ```
-
-    200
-
 
 
 ```python
 # Your comments 
-# code 200 -- everything went okay, and the result has been returned. 
 ```
 
 * Print the contents of the response and identify its current location
 
 
 ```python
-print(response.text)
+# Your Code Here
 ```
-
-    {"message": "success", "iss_position": {"longitude": "-128.8070", "latitude": "29.6495"}, "timestamp": 1552289935}
-
 
 
 ```python
-# Interpret your results using the API - where is the space station right now ?
+# Interpret your results using the API
 ```
 
 ### Check the next pass of International space station for a given location
@@ -90,21 +78,12 @@ Let's repeat the above for the second endpoint `iss-pass.json`. This end point i
 
 
 ```python
-# Make a get request to get the latest position of the international space station from the opennotify api.
-response = requests.get("http://api.open-notify.org/iss-pass.json")
-
-# Print the status code of the response.
-print(response.status_code)
+# Your Code Here
 ```
-
-    400
-
 
 
 ```python
 # Your comments 
-# code 400 -- the server thinks you made a bad request. 
-# This can happen when you don't send along the right data, among other things.
 ```
 
 So clearly there is something wrong as we had a 400 response. This is how you should always test your responses for validity. 
@@ -126,55 +105,8 @@ Perform the following tasks :
 
 
 ```python
-# Set up the parameters we want to pass to the API.
-# This is the latitude and longitude of New York City.
-parameters = {"lat": 40.71, "lon": -74}
-
-# Make a get request with the parameters.
-response = requests.get("http://api.open-notify.org/iss-pass.json", params=parameters)
-print(response.status_code)
-
-# Print the content of the response (the data the server returned)
-print(dict(response.headers))
-print(response.text)
+# Your Code Here
 ```
-
-    200
-    {'Server': 'nginx/1.10.3', 'Date': 'Mon, 11 Mar 2019 07:38:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '519', 'Connection': 'keep-alive', 'Via': '1.1 vegur'}
-    {
-      "message": "success", 
-      "request": {
-        "altitude": 100, 
-        "datetime": 1552289629, 
-        "latitude": 40.71, 
-        "longitude": -74.0, 
-        "passes": 5
-      }, 
-      "response": [
-        {
-          "duration": 550, 
-          "risetime": 1552290380
-        }, 
-        {
-          "duration": 581, 
-          "risetime": 1552296219
-        }, 
-        {
-          "duration": 642, 
-          "risetime": 1552302011
-        }, 
-        {
-          "duration": 541, 
-          "risetime": 1552307832
-        }, 
-        {
-          "duration": 601, 
-          "risetime": 1552362056
-        }
-      ]
-    }
-    
-
 
 
 ```python
@@ -193,19 +125,8 @@ Read the above documentation and perform the following tasks:
 
 
 ```python
-# Get the response from the API endpoint.
-response = requests.get("http://api.open-notify.org/astros.json")
-data = response.json()
-
-# 9 people are currently in space.
-print(data["number"])
-print(dict(data))
-
+# Your Code Here
 ```
-
-    3
-    {'people': [{'name': 'Oleg Kononenko', 'craft': 'ISS'}, {'name': 'David Saint-Jacques', 'craft': 'ISS'}, {'name': 'Anne McClain', 'craft': 'ISS'}], 'number': 3, 'message': 'success'}
-
 
 
 ```python
